@@ -12,10 +12,10 @@ install_requires=[
 
 setup(
     name="alignment_tools",
-    version="0.1.0",
+    version="0.1.1",
     packages=find_packages(),
     install_requires=install_requires,
-    author="Your Name",
+    author="Amirhossein Sakhteman",
     author_email="amirhossein.sakhteman@tume.de",
     description="Tools for AlphaFold PDB processing, SASA, Clustal, and InterPro annotation",
     long_description=open("README.md").read(),
