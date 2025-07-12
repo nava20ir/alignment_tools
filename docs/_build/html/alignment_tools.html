@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>alignment_tools package &mdash; alignment_tools 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="alignment_tools" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            alignment_tools
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">alignment_tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">alignment_tools package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-alignment_tools.core">alignment_tools.core module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.PDB2dataFrame"><code class="docutils literal notranslate"><span class="pre">PDB2dataFrame()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.calculate_SASA_from_alphafold_pdb"><code class="docutils literal notranslate"><span class="pre">calculate_SASA_from_alphafold_pdb()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.calculate_distance_from_ref_point"><code class="docutils literal notranslate"><span class="pre">calculate_distance_from_ref_point()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.calculte_conservation_scores_per_residue"><code class="docutils literal notranslate"><span class="pre">calculte_conservation_scores_per_residue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.convert_aln2fasta"><code class="docutils literal notranslate"><span class="pre">convert_aln2fasta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.download_alphafold_pdb_from_uniprot_id"><code class="docutils literal notranslate"><span class="pre">download_alphafold_pdb_from_uniprot_id()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.find_max_tuple"><code class="docutils literal notranslate"><span class="pre">find_max_tuple()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.find_min_tuple"><code class="docutils literal notranslate"><span class="pre">find_min_tuple()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.find_motif_positions"><code class="docutils literal notranslate"><span class="pre">find_motif_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.find_residue_position"><code class="docutils literal notranslate"><span class="pre">find_residue_position()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.get_Cys_sasa_per_protein"><code class="docutils literal notranslate"><span class="pre">get_Cys_sasa_per_protein()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.get_domain_part"><code class="docutils literal notranslate"><span class="pre">get_domain_part()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.get_min_max_residueIDs_from_reference_residue"><code class="docutils literal notranslate"><span class="pre">get_min_max_residueIDs_from_reference_residue()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.make_dictionary_seqs"><code class="docutils literal notranslate"><span class="pre">make_dictionary_seqs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.make_fasta_file"><code class="docutils literal notranslate"><span class="pre">make_fasta_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.make_input_data"><code class="docutils literal notranslate"><span class="pre">make_input_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.make_interproscan_annotaiton"><code class="docutils literal notranslate"><span class="pre">make_interproscan_annotaiton()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.parse_fasta_sequences"><code class="docutils literal notranslate"><span class="pre">parse_fasta_sequences()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.replace_scores_in_aligned_values"><code class="docutils literal notranslate"><span class="pre">replace_scores_in_aligned_values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.run_clustal"><code class="docutils literal notranslate"><span class="pre">run_clustal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment_tools.core.run_interproscan"><code class="docutils literal notranslate"><span class="pre">run_interproscan()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-alignment_tools">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">alignment_tools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">alignment_tools</a></li>
+      <li class="breadcrumb-item active">alignment_tools package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/alignment_tools.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="alignment-tools-package">
+<h1>alignment_tools package<a class="headerlink" href="#alignment-tools-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-alignment_tools.core">
+<span id="alignment-tools-core-module"></span><h2>alignment_tools.core module<a class="headerlink" href="#module-alignment_tools.core" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.PDB2dataFrame">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">PDB2dataFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pdb_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.PDB2dataFrame" title="Link to this definition"></a></dt>
+<dd><p>Parses a PDB file and extracts atomic-level information into a pandas DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<em>str</em>) – An identifier for the structure (e.g., PDB ID or custom name).</p></li>
+<li><p><strong>pdb_file</strong> (<em>str</em>) – Path to the PDB file to be parsed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>A DataFrame where each row corresponds to an atom in the structure.
+Columns include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’atom_name’: Name of the atom (e.g., ‘CA’, ‘N’).</p></li>
+<li><p>’residue_name’: 3-letter residue name (e.g., ‘ALA’).</p></li>
+<li><p>’chain_id’: Chain identifier (e.g., ‘A’).</p></li>
+<li><p>’residue_id’: Residue number.</p></li>
+<li><p>’x’, ‘y’, ‘z’: Cartesian coordinates of the atom.</p></li>
+<li><p>’bfactor’: B-factor (temperature factor).</p></li>
+<li><p>’occupancy’: Occupancy value of the atom.</p></li>
+<li><p>’element’: Chemical element symbol.</p></li>
+<li><p>’id’: The structure ID passed to the function.</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Uses Biopython’s PDBParser to extract atomic data.</p></li>
+<li><p>Only includes atoms from the first model (if multiple models exist).</p></li>
+<li><p>Skips hydrogen atoms only if they are not present in the file (no filtering is done).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.calculate_SASA_from_alphafold_pdb">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">calculate_SASA_from_alphafold_pdb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniprot_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.calculate_SASA_from_alphafold_pdb" title="Link to this definition"></a></dt>
+<dd><p>Calculates the solvent accessible surface area (SASA) of a protein structure
+from an AlphaFold PDB file and writes the SASA data to a new PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>uniprot_id</strong> (<em>str</em>) – The UniProt identifier corresponding to the AlphaFold structure file
+named ‘AF-{uniprot_id}-F1.pdb’ which must be present in the working directory.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function writes a new PDB file named ‘AF-{uniprot_id}-F1.sasa.pdb’
+with SASA values included.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Uses the freesasa Python library to calculate SASA.</p></li>
+<li><p>The AlphaFold PDB file must exist in the current directory before calling this function.</p></li>
+<li><p>Any exceptions during calculation or file handling are caught, and a failure message is printed.
+This prevents the program from crashing but suppresses detailed error information.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<p>calculate_SASA_from_alphafold_pdb(“P12345”)
+This will read ‘AF-P12345-F1.pdb’ and write ‘AF-P12345-F1.sasa.pdb’.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.calculate_distance_from_ref_point">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">calculate_distance_from_ref_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CA'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.calculate_distance_from_ref_point" title="Link to this definition"></a></dt>
+<dd><p>Calculates the Euclidean distance from a reference atom in a specified residue
+to all other atoms in the DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – A DataFrame containing atomic coordinates and residue information.
+Expected columns: [‘residue_id’, ‘atom_name’, ‘x’, ‘y’, ‘z’].</p></li>
+<li><p><strong>resid</strong> (<em>int</em>) – The residue ID containing the reference atom.</p></li>
+<li><p><strong>atom_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the reference atom within the residue (default is ‘CA’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The input DataFrame with an additional column <cite>‘distance’</cite> representing
+the Euclidean distance of each atom to the reference point.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the specified reference atom is not found in the DataFrame.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.calculte_conservation_scores_per_residue">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">calculte_conservation_scores_per_residue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fasta_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">residue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.calculte_conservation_scores_per_residue" title="Link to this definition"></a></dt>
+<dd><p>Calculates conservation scores per residue type across aligned sequences.</p>
+<p>This function computes a conservation score for a specified residue type (e.g., ‘C’)
+based on the average frequency of that residue appearing in each position across
+a multiple sequence alignment. The input DataFrame is expected to have aligned sequences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fasta_df</strong> (<em>pandas.DataFrame</em>) – DataFrame containing aligned sequences with columns:
+- ‘Proteins’: identifiers of sequences
+- ‘sequence’: aligned sequences (strings) containing gaps if any</p></li>
+<li><p><strong>residue</strong> (<em>str</em><em>, </em><em>optional</em>) – The amino acid residue to calculate conservation for (default is ‘C’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fasta_df</strong> (<em>pandas.DataFrame</em>) – The original DataFrame augmented with a new column
+<cite>conserved_&lt;residue&gt;</cite> containing conservation scores per sequence position as
+semicolon-separated strings.</p></li>
+<li><p><strong>conserved_df</strong> (<em>pandas.DataFrame</em>) – A numeric matrix (DataFrame) of the conservation scores per residue per position,
+indexed by ‘Proteins’.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The function filters out sequences with the exact value ‘..:.’ in the ‘sequence’ column.</p></li>
+<li><p>Uses a helper function <cite>_tokenize</cite> (not provided here) to transform sequences into numeric vectors
+indicating the presence of the specified residue.</p></li>
+<li><p>Conservation score per position is computed as the product of the residue presence matrix
+and the mean frequency across sequences.</p></li>
+<li><p>The returned <cite>conserved_df</cite> can be used for further analysis or visualization.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>fasta_df, conserved_df = calculate_conservation_scores_per_residue(fasta_df, residue=’C’)
+fasta_df.columns
+Index([‘Proteins’, ‘sequence’, ‘tokens’, ‘conserved_C’], dtype=’object’)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.convert_aln2fasta">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">convert_aln2fasta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.convert_aln2fasta" title="Link to this definition"></a></dt>
+<dd><p>Converts a CLUSTAL .aln alignment file to FASTA format.</p>
+<p>This function reads a CLUSTAL-formatted alignment file (commonly with <cite>.aln</cite> extension),
+parses the sequence blocks, reconstructs full sequences per identifier, and writes
+them in standard FASTA format to the output file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – Path to the input <cite>.aln</cite> file in CLUSTAL format.</p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – Path to the output <cite>.fasta</cite> file to be created.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Writes output to the specified FASTA file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Skips CLUSTAL headers, empty lines, and consensus lines (lines containing ‘*’).</p></li>
+<li><p>Handles multiple alignment blocks and concatenates sequences by ID.</p></li>
+<li><p>Assumes alignment lines are whitespace-separated: <cite>&lt;ID&gt; &lt;SEQ&gt;</cite>.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>convert_aln2fasta(“alignment.aln”, “alignment.fasta”)
+Converted alignment.aln to alignment.fasta</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.download_alphafold_pdb_from_uniprot_id">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">download_alphafold_pdb_from_uniprot_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniprot_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'v4'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.download_alphafold_pdb_from_uniprot_id" title="Link to this definition"></a></dt>
+<dd><p>Downloads the AlphaFold PDB structure file for a given UniProt ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uniprot_id</strong> (<em>str</em>) – The UniProt identifier of the protein to download (e.g., ‘P12345’).</p></li>
+<li><p><strong>database_version</strong> (<em>str</em><em>, </em><em>optional</em>) – The AlphaFold database version to use (default is ‘v4’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function saves the downloaded PDB file in the current working directory
+with the filename format: ‘AF-{uniprot_id}-F1.pdb’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The function uses <cite>curl</cite> via <cite>os.system()</cite>, so it requires <cite>curl</cite> to be installed and available in the system’s PATH.</p></li>
+<li><p>The file is fetched from: <a class="reference external" href="https://alphafold.ebi.ac.uk/files/">https://alphafold.ebi.ac.uk/files/</a></p></li>
+<li><p>The downloaded file corresponds to: ‘AF-{uniprot_id}-F1-model_{database_version}.pdb’
+but it is saved locally as: ‘AF-{uniprot_id}-F1.pdb’</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.find_max_tuple">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">find_max_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.find_max_tuple" title="Link to this definition"></a></dt>
+<dd><p>Returns the maximum tuple from a list of tuples, ignoring any tuples containing None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tuples</strong> (<em>list</em><em> of </em><em>tuple</em>) – A list of tuples to evaluate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The tuple with the largest value, or None if no valid tuples exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.find_min_tuple">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">find_min_tuple</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tuples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.find_min_tuple" title="Link to this definition"></a></dt>
+<dd><p>Returns the minimum tuple from a list of tuples, ignoring any tuples containing None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tuples</strong> (<em>list</em><em> of </em><em>tuple</em>) – A list of tuples to evaluate.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The tuple with the smallest value, or None if no valid tuples exist.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.find_motif_positions">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">find_motif_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">motif</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.find_motif_positions" title="Link to this definition"></a></dt>
+<dd><p>Finds the 1-based index of the first occurrence of a motif in a given sequence.</p>
+<p>This function searches for the first exact occurrence of the specified motif (substring)
+within a larger sequence (e.g., a protein or nucleotide sequence). It returns the index
+of the first character of that match using 1-based indexing, which is standard in
+bioinformatics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence</strong> (<em>str</em>) – The full sequence in which to search for the motif.</p></li>
+<li><p><strong>motif</strong> (<em>str</em>) – The motif (substring) to locate within the sequence.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The 1-based position of the first occurrence of the motif in the sequence.
+Returns None if the motif is not found or an error occurs.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>find_motif_positions(“ACDEFGHIK”, “EFG”)
+4</p>
+<p>find_motif_positions(“ACDEFGHIK”, “XYZ”)
+None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.find_residue_position">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">find_residue_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sequence</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">residue</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.find_residue_position" title="Link to this definition"></a></dt>
+<dd><p>Finds all positions of a specific residue in a given sequence and returns them as a semicolon-separated string.</p>
+<p>This function scans the input sequence for occurrences of a specified residue (e.g., ‘C’ for cysteine)
+and returns their positions, adjusted by the given start position (useful when the sequence is a subregion
+of a longer protein).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sequence</strong> (<em>str</em>) – The amino acid sequence in which to search.</p></li>
+<li><p><strong>start_pos</strong> (<em>int</em><em>, </em><em>optional</em>) – The starting position of the sequence relative to a global context (default is 1).
+This is added to the zero-based index to get the correct biological position.</p></li>
+<li><p><strong>residue</strong> (<em>str</em><em>, </em><em>optional</em>) – The single-letter code of the amino acid to search for (default is ‘C’).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A semicolon-separated string of 1-based positions where the residue is found.
+Returns an empty string if the residue is not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>find_residue_position(“ACKCDEFGC”, start_pos=1, residue=’C’)
+‘2;4;9’</p>
+<p>find_residue_position(“MQDRVKRPMNAFIVWSRDQRRKMALEN”, start_pos=10, residue=’R’)
+‘17;20;21;23’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.get_Cys_sasa_per_protein">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">get_Cys_sasa_per_protein</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniprot_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resids</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.get_Cys_sasa_per_protein" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the solvent accessible surface area (SASA) values for the sulfur atom (SG)
+of cysteine residues specified by residue IDs from an AlphaFold SASA-annotated PDB file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uniprot_id</strong> (<em>str</em>) – The UniProt identifier of the protein. The function expects a corresponding
+AlphaFold SASA PDB file named ‘AF-{uniprot_id}-F1.sasa.pdb’ in the working directory.</p></li>
+<li><p><strong>resids</strong> (<em>str</em>) – A semicolon-separated string of residue IDs (integers) corresponding to cysteine residues.
+Example: “45;78;102”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A semicolon-separated string of SASA values (as strings) for the sulfur atom (SG) of
+each cysteine residue in the input list. If SASA cannot be found or an error occurs
+for a residue, ‘n.d.’ (not determined) is returned for that residue.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Internally uses a helper function <cite>_get_CYS_sasa_for_residue_id</cite> that attempts to extract
+the ‘bfactor’ value (used here to store SASA) for the SG atom of the specified residue.</p></li>
+<li><p>The function handles exceptions gracefully, returning ‘n.d.’ for missing or problematic residues,
+and returns None silently if the entire process fails.</p></li>
+</ul>
+<p class="rubric">Example</p>
+<p>get_Cys_sasa_per_protein(“P12345”, “45;78;102”)
+‘23.45;15.67;n.d.’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.get_domain_part">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">get_domain_part</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.get_domain_part" title="Link to this definition"></a></dt>
+<dd><p>Extracts a substring from a protein sequence with extended boundaries.</p>
+<p>This function extracts a region of a protein sequence around a specified
+start and end position, extending the region by a specified tolerance (in
+amino acids) on both sides. The function ensures that the extended range
+does not exceed the sequence boundaries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>str</em>) – The full protein sequence.</p></li>
+<li><p><strong>start</strong> (<em>int</em>) – The starting index of the domain (1-based, inclusive).</p></li>
+<li><p><strong>end</strong> (<em>int</em>) – The ending index of the domain (1-based, inclusive).</p></li>
+<li><p><strong>tolerance</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of residues to extend on both sides of the domain (default is 20).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The extracted domain region from the protein sequence, including the
+tolerance extension, if within bounds.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Indexing is adjusted for 0-based Python slicing.</p></li>
+<li><p>If the start or end with tolerance goes beyond the sequence, it is clipped
+to valid indices.</p></li>
+<li><p>Prints the start and end indices used for slicing (for debugging).</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>get_domain_part(“ABCDEFGHIJKLMNOPQRSTUVWXYZ”, 5, 12,tolerance=2)
+‘CDEFGHIJKLMN’</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.get_min_max_residueIDs_from_reference_residue">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">get_min_max_residueIDs_from_reference_residue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uniprot_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_residue_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neighbor_distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atom_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CA'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.get_min_max_residueIDs_from_reference_residue" title="Link to this definition"></a></dt>
+<dd><p>Identifies the minimum and maximum residue IDs within a specified distance
+from a reference residue in a protein structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>uniprot_id</strong> (<em>str</em>) – The UniProt ID of the protein. Used to construct the PDB file name (expected format: ‘AF-{uniprot_id}-F1.pdb’).</p></li>
+<li><p><strong>ref_residue_id</strong> (<em>int</em>) – The residue ID to use as the reference point.</p></li>
+<li><p><strong>neighbor_distance</strong> (<em>int</em><em>, </em><em>optional</em>) – The distance threshold (in Ångströms) to define neighboring residues (default is 6 Å).</p></li>
+<li><p><strong>atom_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The atom name in the reference residue to calculate distance from (default is ‘CA’ for alpha carbon).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A tuple containing:
+- minimum residue ID within the distance threshold
+- maximum residue ID within the distance threshold</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Requires the corresponding PDB file to be named ‘AF-{uniprot_id}-F1.pdb’ and located in the working directory.</p></li>
+<li><p>Uses Euclidean distance from the specified atom in the reference residue.</p></li>
+<li><p>Assumes the structure only contains one model.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the reference atom is not found in the structure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.make_dictionary_seqs">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">make_dictionary_seqs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fasta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'|'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.make_dictionary_seqs" title="Link to this definition"></a></dt>
+<dd><p>Parses a FASTA file and returns a dictionary and DataFrame of sequences.</p>
+<p>This function reads a FASTA file and constructs:
+1. A dictionary where keys are parsed from the FASTA header using a delimiter</p>
+<blockquote>
+<div><p>and values are the corresponding sequences.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>A pandas DataFrame containing the same data with columns: ‘Proteins’ and ‘sequence’.</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fasta</strong> (<em>str</em>) – Path to the input FASTA file.</p></li>
+<li><p><strong>splitter</strong> (<em>str</em><em>, </em><em>optional</em>) – A character used to split the FASTA header (default is ‘|’).
+The second part after the split (index 1) is used as the dictionary key.
+If splitter is None or an empty string, the full header is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>fasta_ids_dic<span class="classifier">dict</span></dt><dd><p>Dictionary mapping parsed identifiers to sequences.</p>
+</dd>
+<dt>fasta_df<span class="classifier">pandas.DataFrame</span></dt><dd><dl class="simple">
+<dt>DataFrame with columns:</dt><dd><ul class="simple">
+<li><p>’Proteins’: parsed identifiers</p></li>
+<li><p>’sequence’: full sequence strings</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>IndexError</strong> – If the FASTA header does not contain at least two parts when using a splitter.</p></li>
+<li><p><strong>FileNotFoundError</strong> – If the FASTA file path is invalid.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>dic, df = make_dictionary_seqs(“example.fasta”)
+dic[“P12345”]
+‘MKTLLILTCLVAVALARPKH’
+df.head()</p>
+<blockquote>
+<div><p>Proteins            sequence</p>
+</div></blockquote>
+<p>0   P12345  MKTLLILTCLVAVALARPKH</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.make_fasta_file">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">make_fasta_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sub_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'final.fasta'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.make_fasta_file" title="Link to this definition"></a></dt>
+<dd><p>Writes protein sequences from a DataFrame to a FASTA-format file.</p>
+<p>Each row in the DataFrame should contain a protein sequence and a corresponding protein name.
+The function creates a FASTA file where each sequence is preceded by a header line with the protein name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sub_df</strong> (<em>pandas.DataFrame</em>) – A DataFrame containing at least two columns:
+- ‘sequence’: the protein sequence as a string
+- ‘Proteins’: the identifier or name of the protein</p></li>
+<li><p><strong>file_name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name of the output FASTA file (default is “final.fasta”).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function writes to a file and returns nothing.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the ‘sequence’ or ‘Proteins’ column is not present in <cite>sub_df</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.make_input_data">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">make_input_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">column</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.make_input_data" title="Link to this definition"></a></dt>
+<dd><p>Converts a DataFrame column containing array-like objects into a clean 2D DataFrame.</p>
+<p>This function stacks the values in the specified column (which should contain array-like entries, such as lists or arrays)
+into a 2D NumPy array, constructs a new DataFrame from it, and sets its index to the original <cite>uniprot_id</cite> column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – The input DataFrame containing a <cite>column</cite> of array-like values and a <cite>uniprot_id</cite> column.</p></li>
+<li><p><strong>column</strong> (<em>str</em>) – The name of the column in <cite>df</cite> that contains the array-like values to be stacked.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>df_clean</strong> – A new DataFrame where each row corresponds to one entry in the original column, and the index is set to <cite>uniprot_id</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>KeyError</strong> – If <cite>column</cite> or <cite>uniprot_id</cite> does not exist in the input DataFrame.</p></li>
+<li><p><strong>ValueError</strong> – If the entries in the specified column are not array-like or are inconsistent in length.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.make_interproscan_annotaiton">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">make_interproscan_annotaiton</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">annotation_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.make_interproscan_annotaiton" title="Link to this definition"></a></dt>
+<dd><p>Parses an InterProScan annotation file and extracts entries with ATP-related domains.</p>
+<p>This function reads an InterProScan annotation TSV file (without a header), assigns
+meaningful column names, and filters for entries where the domain description contains
+the substring “ATP” (e.g., ATP-binding, ATPase, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>annotation_file</strong> (<em>str</em>) – Path to the InterProScan annotation file (TSV format, no header expected).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>A DataFrame containing only the rows where the domain name includes “ATP”.
+The DataFrame includes the following columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>uniprot : str</p></li>
+<li><p>hash : str</p></li>
+<li><p>length : int</p></li>
+<li><p>db : str</p></li>
+<li><p>pfam : str</p></li>
+<li><p>domain : str</p></li>
+<li><p>start_position : int</p></li>
+<li><p>end_position : int</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Assumes the file has at least 8 tab-separated columns.</p></li>
+<li><p>No validation is performed on the structure or content of the file beyond column count.</p></li>
+<li><p>Filtering is case-sensitive (i.e., only matches “ATP”, not “atp”).</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.parse_fasta_sequences">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">parse_fasta_sequences</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_site</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_site</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.parse_fasta_sequences" title="Link to this definition"></a></dt>
+<dd><p>Parses a FASTA file and returns a dictionary of sequence IDs and their (optionally sliced) sequences.</p>
+<p>This function reads a FASTA file and returns a dictionary where each key is a sequence ID
+(from the FASTA header) and the value is the corresponding nucleotide or amino acid sequence.
+Optionally, you can extract a slice of the sequence using <cite>from_site</cite> and <cite>to_site</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – Path to the FASTA file to be parsed.</p></li>
+<li><p><strong>from_site</strong> (<em>int</em><em>, </em><em>optional</em>) – Start index for slicing the sequence (default is 0, inclusive).</p></li>
+<li><p><strong>to_site</strong> (<em>int</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – End index for slicing the sequence (default is None, meaning slice until the end).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary where keys are sequence IDs and values are sequences (or sliced subsequences).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Slicing follows Python’s 0-based indexing and is inclusive of <cite>from_site</cite>, exclusive of <cite>to_site</cite>.</p></li>
+<li><p>Sequences are returned as plain strings.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>parse_fasta_sequences(“example.fasta”)
+{‘seq1’: ‘MKTLLILTCLVAVALARPKH’, ‘seq2’: ‘GAVRQKLIED’}</p>
+<p>parse_fasta_sequences(“example.fasta”, from_site=5, to_site=10)
+{‘seq1’: ‘LILTC’, ‘seq2’: ‘QKLIE’}</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.replace_scores_in_aligned_values">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">replace_scores_in_aligned_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.replace_scores_in_aligned_values" title="Link to this definition"></a></dt>
+<dd><p>Replaces non-zero values in a list with new values from another list.</p>
+<p>This function takes two inputs:
+- <cite>list1</cite>: a string representation of a Python list containing numerical values,</p>
+<blockquote>
+<div><p>possibly with zeros indicating positions to keep unchanged.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><cite>list2</cite>: a list (or iterable) of values that will replace the non-zero elements
+in <cite>list1</cite> in the order they appear.</p></li>
+</ul>
+<p>The function returns a NumPy array where each non-zero element in the parsed <cite>list1</cite>
+is replaced by the corresponding value from <cite>list2</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list1</strong> (<em>str</em>) – String representation of a list of floats, e.g. ‘[0.0, 1.5, 0.0, 2.3]’.
+Zero values indicate positions to be preserved.</p></li>
+<li><p><strong>list2</strong> (<em>list</em><em> or </em><em>iterable</em><em> of </em><em>float-compatible</em>) – List of replacement values for non-zero positions in <cite>list1</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array with non-zero positions replaced by values from <cite>list2</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the number of non-zero elements in <cite>list1</cite> does not match the length of <cite>list2</cite>.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>replace_scores_in_aligned_values(‘[0, 2.0, 0, 3.5]’, [10, 20])
+array([ 0., 10.,  0., 20.])</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.run_clustal">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">run_clustal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">draw_tree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.run_clustal" title="Link to this definition"></a></dt>
+<dd><p>Runs ClustalW on a FASTA file to generate a multiple sequence alignment (MSA) and optionally draws a dendrogram.</p>
+<p>This function runs the external ClustalW program on the given FASTA file,
+producing an alignment file (.aln) and a dendrogram file (.dnd).
+It reads the alignment and computes a consensus sequence.
+Optionally, it draws and displays the phylogenetic tree.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – Path to the input FASTA file containing sequences to be aligned.</p></li>
+<li><p><strong>draw_tree</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, displays a dendrogram of the phylogenetic tree (default is False).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>alignment</strong> (<em>Bio.Align.MultipleSeqAlignment</em>) – The multiple sequence alignment object read from the ClustalW output.</p></li>
+<li><p><strong>aln_output_file</strong> (<em>str</em>) – Path to the generated alignment file (.aln).</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>subprocess.CalledProcessError</strong> – If the ClustalW command fails.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Requires ClustalW installed and available in the system PATH.</p></li>
+<li><p>Uses Biopython modules: AlignIO, AlignInfo, Phylo.</p></li>
+<li><p>Uses matplotlib.pyplot for drawing the tree.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>alignment, aln_file = run_clustal(“sequences.fasta”, draw_tree=True)
+print(alignment)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="alignment_tools.core.run_interproscan">
+<span class="sig-prename descclassname"><span class="pre">alignment_tools.core.</span></span><span class="sig-name descname"><span class="pre">run_interproscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpro_command</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/media/LIMS/Src/fasta_annotation/interproscan-5.73-104.0/interproscan.sh'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#alignment_tools.core.run_interproscan" title="Link to this definition"></a></dt>
+<dd><p>Runs InterProScan to annotate protein sequences with domain and family information.</p>
+<p>This function executes the InterProScan command-line tool on a given FASTA file
+to generate protein domain annotations (e.g., Pfam, TIGRFAM, etc.) in TSV format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_file</strong> (<em>str</em>) – Path to the input FASTA file containing protein sequences to annotate.</p></li>
+<li><p><strong>interpro_command</strong> (<em>str</em><em>, </em><em>optional</em>) – Full path to the InterProScan executable script (default is a specific local path).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The function does not return a value but generates an output TSV file in the
+same directory as the input file, with annotations from InterProScan.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>subprocess.CalledProcessError</strong> – If the InterProScan command fails.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Ensure InterProScan is installed and the path provided in <cite>interpro_command</cite> is correct.</p></li>
+<li><p>The output TSV file will have the same base name as the input but with an <cite>.tsv</cite> extension.</p></li>
+<li><p>Additional command-line options (e.g., output directory, formats) can be added by modifying the <cite>command</cite> list.</p></li>
+</ul>
+<p class="rubric">Examples</p>
+<p>run_interproscan(“proteins.fasta”)</p>
+</dd></dl>
+
+</section>
+<section id="module-alignment_tools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-alignment_tools" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="alignment_tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
