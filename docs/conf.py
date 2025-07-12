@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 
 project = 'alignment_tools'
-author = 'Your Name'
+author = 'Amirhossein Sakhteman'
 release = '0.1.1'
 
 extensions = [
