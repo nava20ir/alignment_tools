@@ -246,7 +246,13 @@ def make_iBaq_mapping_df(fasta_file:str) -> pd.DataFrame:
         - 'uniprot_id': Extracted UniProt identifier.
         - 'max_num_peptide': Maximum number of peptides observed for each UniProt ID.
     """
-    digest_res = get_peptide_to_protein_map(fasta_file)
+    digest_res = get_peptide_to_protein_map(
+    fasta_file,
+    min_len = 6,
+    max_len = 32,
+    miscleavages = 0,
+    methionine_cleavage = False
+    )
     mapping_dic = dict(get_num_peptides_per_protein(digest_res))
     protein2peptide_df = pd.DataFrame(list(mapping_dic.items()),columns=['protein_identifier','num'])
     try:
@@ -257,6 +263,7 @@ def make_iBaq_mapping_df(fasta_file:str) -> pd.DataFrame:
     protein2peptide_df = protein2peptide_df[~protein2peptide_df.protein_identifier.str.contains('REV__')]
     protein2peptide_df['max_num_peptide'] = protein2peptide_df.groupby('uniprot_id')['num'].transform('max')
     return protein2peptide_df
+
 
 
 
