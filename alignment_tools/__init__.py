@@ -26,3 +26,11 @@ from .core import (
                                     )
 
 
+from .digest import (
+get_num_ibaq_peptides_per_protein,
+make_iBaq_mapping_df,
+get_digested_peptides,
+get_peptide_to_protein_map,
+get_ibaq_peptide_to_protein_map
+
+)

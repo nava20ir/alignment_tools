@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: alignment_tools
-Version: 0.1.1
+Version: 0.1.2
 Summary: Tools for AlphaFold PDB processing, SASA, Clustal, and InterPro annotation
 Author: Amirhossein Sakhteman
 Author-email: amirhossein.sakhteman@tume.de
@@ -27,6 +27,9 @@ Dynamic: requires-python
 Dynamic: summary
 
 ## 📦 PyPI
+- For documentation refer to 
+
+https://alignment-tools.readthedocs.io/en/latest/alignment_tools.html
 
 You can install this package via pip:
 
