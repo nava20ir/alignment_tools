@@ -20,13 +20,17 @@ from .core import (
 	   get_domain_part,
 	   get_Cys_sasa_per_protein,
 	   calculate_SASA_from_alphafold_pdb,
-	   replace_scores_in_aligned_values
+	   replace_scores_in_aligned_values,
+       batch_find_sequence_start_end,
+       get_matching_peptides_indexes,
+       get_peptides_list_by_index
 
                                     # Add more as needed
                                     )
 
 
 from .digest import (
+batch_digest_sequence,
 get_num_ibaq_peptides_per_protein,
 make_iBaq_mapping_df,
 get_digested_peptides,

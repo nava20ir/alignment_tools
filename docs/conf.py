@@ -7,11 +7,11 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('../../'))
 project = 'alignment_tools'
-copyright = '2025, Amirhossein Sakhteman'
-author = 'Amirhossein Sakhteman'
-release = '0.1.4'
+copyright = '2025, Amirhossein Sakhteman, Matthew The'
+author = 'Amirhossein Sakhteman, Matthew The'
+release = '0.1.5'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -21,7 +21,6 @@ extensions = [
     'numpydoc',
     'sphinx.ext.napoleon',  # for Google-style docstrings
 ]
-
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
@@ -30,5 +29,5 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'alabaster'
 html_static_path = ['_static']

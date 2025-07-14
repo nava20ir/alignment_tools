@@ -1,5 +1,5 @@
 .. alignment_tools documentation master file, created by
-   sphinx-quickstart on Mon Jul 14 16:37:25 2025.
+   sphinx-quickstart on Mon Jul 14 17:04:05 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
