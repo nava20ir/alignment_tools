@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: alignment_tools
-Version: 0.1.2
+Version: 0.1.4
 Summary: Tools for AlphaFold PDB processing, SASA, Clustal, and InterPro annotation
 Author: Amirhossein Sakhteman
 Author-email: amirhossein.sakhteman@tume.de

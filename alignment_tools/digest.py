@@ -221,6 +221,32 @@ ENZYME_CLEAVAGE_RULES = {
 PeptideToProteinMap = Dict[str, List[str]]
 
 
+def batch_digest_sequence(seq):
+    """
+    Digest a protein sequence into peptides and join them with semicolons.
+
+    Calls `get_digested_peptides(seq)` to get a list or iterable
+    of peptides generated from the input sequence, then joins them into a single
+    string separated by semicolons.
+
+    Parameters
+    ----------
+    seq : str
+        The protein or peptide sequence to digest.
+
+    Returns
+    -------
+    str or None
+        A semicolon-separated string of digested peptides if successful;
+        otherwise, None if an exception occurs.
+    """
+    try:
+        return (';').join([x for x in get_digested_peptides(seq)])
+    except:
+        return None
+
+
+
 def make_iBaq_mapping_df(fasta_file:str) -> pd.DataFrame:
     """
     Generates a DataFrame mapping UniProt IDs to the number of peptides per protein 

@@ -12,7 +12,7 @@ install_requires=[
 
 setup(
     name="alignment_tools",
-    version="0.1.2",
+    version="0.1.4",
     packages=find_packages(),
     install_requires=install_requires,
     author="Amirhossein Sakhteman",

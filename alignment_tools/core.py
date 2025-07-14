@@ -16,6 +16,68 @@ import freesasa
 dir_interpro = ""
 
 
+def batch_find_sequence_start_end(fullsequence:str ,subsequence_grouped:str) -> str:
+    """
+    Find the start and end positions of multiple peptide subsequences within a full sequence.
+
+    Splits the `subsequence_grouped` string (which contains semicolon-separated peptide subsequences),
+    then uses `find_peptide_positions_within_full_sequence` to compute the start and end position
+    of each peptide in the `fullsequence`.
+
+    Parameters
+    ----------
+    fullsequence : str
+        The full protein or nucleotide sequence in which to search for subsequences.
+    subsequence_grouped : str
+        A semicolon-separated string of peptide subsequences (e.g., "ABC;DEF;GHI").
+
+    Returns
+    -------
+    str
+        A semicolon-separated string of start and end positions for each peptide, in the format
+        'start_end;start_end;...'.
+
+    Notes
+    -----
+    The function assumes each peptide appears exactly once in the full sequence.
+    If a peptide is not found, `find_peptide_positions_within_full_sequence` may raise an error
+    or return an invalid result depending on its internal logic.
+    """
+    return (';').join([find_peptide_positions_within_full_sequence(fullsequence,x) for x in subsequence_grouped.split(';') ])
+
+
+
+def find_peptide_positions_within_full_sequence(fullsequence:str,peptide:str) -> str:
+    """
+    Find the start and end positions of a peptide within a full sequence.
+
+    Uses `alignment_functions.find_motif_positions` to locate the starting index
+    of the peptide motif in the full sequence, then calculates the end position
+    based on the peptide length.
+
+    Parameters
+    ----------
+    fullsequence : str
+        The full protein or nucleotide sequence in which to search.
+    peptide : str
+        The peptide sequence (motif) to find within the full sequence.
+
+    Returns
+    -------
+    str
+        A string formatted as 'start_end' representing the 1-based inclusive
+        positions of the peptide within the full sequence.
+
+    Notes
+    -----
+    The function assumes that `alignment_functions.find_motif_positions` returns
+    the starting index (0-based) of the peptide in the full sequence.
+    """
+    startpoint = find_motif_positions(fullsequence,peptide)
+    return f'{startpoint}_{startpoint+len(peptide)-1 }'
+
+
+
 def get_min_max_residueIDs_from_reference_residue(uniprot_id, ref_residue_id:int,neighbor_distance:int= 6, atom_name="CA"):
     """
     Identifies the minimum and maximum residue IDs within a specified distance 
@@ -1036,3 +1098,74 @@ def make_input_data(df, column):
     df_clean.index = df.uniprot_id
     return df_clean
 
+
+def get_matching_peptides_index(sites:str,digested_peptidess_intervals:str) -> str:
+    """
+    Find indexes of digested peptide intervals that contain any of the given sites.
+
+    Parses a semicolon-separated list of numeric sites and a semicolon-separated list of
+    interval strings (in 'start_end' format), then identifies which intervals contain
+    at least one of the sites.
+
+    Parameters
+    ----------
+    sites : str
+        A semicolon-separated string of integers representing site positions (e.g., "71;87;129").
+    digested_peptidess_intervals : str
+        A semicolon-separated string of peptide intervals in 'start_end' format
+        (e.g., "70_80;81_103;127_140").
+
+    Returns
+    -------
+    str
+        A semicolon-separated string of indexes (0-based) corresponding to intervals that contain
+        at least one of the given sites.
+
+    Example
+    -------
+    >>> get_matching_peptides_indexes("71;87;129", "70_80;81_103;127_140")
+    '0;1;2'
+    """
+
+    numbers = list(map(int,sites.split(';')))
+    intervals = [(int(start), int(end)) for start, end in (pair.split('_') for pair in digested_peptidess_intervals.split(';'))]
+
+    def _interval_contains_any(interval, nums):
+        start, end = interval
+        return any(start <= num <= end for num in nums)
+    return (';').join([str(i) for i, interval in enumerate(intervals) if _interval_contains_any(interval, numbers)])
+
+
+def get_peptides_list_by_index(inds:str,list_peptides:str) -> str:
+    """
+    Select peptides by index from a semicolon-separated peptide list.
+
+    Parses `inds` as a semicolon-separated list of integer indexes, and uses them
+    to extract peptides from the `list_peptides` string.
+
+    Parameters
+    ----------
+    inds : str
+        A semicolon-separated string of integers representing the indexes of the peptides to select.
+        Example: "0;2;4"
+    
+    list_peptides : str
+        A semicolon-separated string of peptide sequences.
+        Example: "PEP1;PEP2;PEP3;PEP4;PEP5"
+
+    Returns
+    -------
+    str or None
+        A semicolon-separated string of selected peptides, or None if an error occurs (e.g., index out of range or invalid input).
+
+    Example
+    -------
+    >>> get_final_peptides("0;2", "A;B;C")
+    'A;C'
+    """
+    try:
+        selected_inds = list(map(int,inds.split(';')))
+        list_peptides = list_peptides.split(';')
+        return (';').join([list_peptides[i] for i in selected_inds])
+    except:
+        return None

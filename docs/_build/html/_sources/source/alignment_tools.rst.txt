@@ -9,21 +9,21 @@ alignment\_tools.core module
 
 .. automodule:: alignment_tools.core
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 alignment\_tools.digest module
 ------------------------------
 
 .. automodule:: alignment_tools.digest
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: alignment_tools
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
